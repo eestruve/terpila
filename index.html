@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Терпила</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Терпила">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Main Screen -->
+        <section id="screen-main" class="screen active">
+            <div class="main-content">
+                <button id="btn-start-stop" class="btn-start">СТАРТ</button>
+            </div>
+            <button id="btn-goto-stats" class="btn-secondary">Статистика</button>
+        </section>
+
+        <!-- Stats Screen -->
+        <section id="screen-stats" class="screen">
+            <header class="stats-header">
+                <button id="btn-back" class="btn-back">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+                    </svg>
+                </button>
+                <h1>История запусков</h1>
+            </header>
+            <div class="stats-content">
+                <div id="stats-list" class="stats-list">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
