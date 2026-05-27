@@ -43,8 +43,9 @@ btnBack.addEventListener('click', () => {
 });
 
 // iOS HTML5 Audio Unlocking
-function unlockAudio() {
-    audios.forEach(audio => {
+function unlockAudio(skipIndex) {
+    audios.forEach((audio, idx) => {
+        if (idx === skipIndex) return; // Skip the one we are about to play immediately
         const playPromise = audio.play();
         if (playPromise !== undefined) {
             playPromise.then(() => {
@@ -59,12 +60,11 @@ function unlockAudio() {
 
 // Start/Stop Handler
 btnStartStop.addEventListener('click', () => {
-    // Attempt to unlock all audios on user gesture (required for iOS Safari)
-    unlockAudio();
-
     if (isRunning) {
         stopTimer();
     } else {
+        // Attempt to unlock all other audios on user gesture (required for iOS Safari)
+        unlockAudio(0); // Skip index 0 (phrase_0) since startTimer() plays it immediately
         startTimer();
     }
 });
